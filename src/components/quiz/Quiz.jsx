@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import QuizCard from '../quiz/QuizCard';
-import ResultSummary from '../quiz/ResultSummary';
+import QuizCard from './QuizCard';
+import ResultSummary from './ResultSummary';
 import Button from '../common/Button';
 
 const Quiz = ({ questions, onBackToMain }) => {
