@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Logo from "../common/Logo";
 import Button from '../common/Button';
 import InputField from '../common/InputField';
 import "/src/App.css";
@@ -19,6 +20,7 @@ const LoginForm = ({ onSubmit }) => {
 
   return (
     <form className="login-form" onSubmit={handleSubmit}>
+      <Logo className="logo" />
       <InputField
         type="email"
         value={email}
