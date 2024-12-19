@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import QuizCard from './QuizCard';
 import ResultSummary from './ResultSummary';
 import Button from '../common/Button';
-import "/src/App.css";
+import "/src/components/quiz/Quiz.css";
 
 const Quiz = ({ questions, onBackToMain }) => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
