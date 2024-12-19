@@ -34,6 +34,7 @@ input {
   width: 100%;
   height: 300px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   overflow: hidden;
@@ -52,18 +53,28 @@ input {
 
 .header h1 {
   position: relative;
-  z-index: 2;
   font-size: 2.5rem;
   text-align: center;
+  z-index: 2;
+}
+
+.header p {
+  position: relative;
+  margin-top: 10px;
+  text-align: center;
+  font-size: 1.2rem;
+  z-index: 2;
+
 }
 
 .logo {
-  position: absolute;
-  top: 40px;
-  width: 100px;
-  height: auto;
-  border-radius: 50px;
-  z-index: 10;
+  margin-top: 10px;
+  margin-left: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  z-index: 2;
 }
 
 .button {
@@ -128,7 +139,6 @@ input {
   max-width: 400px;
   margin: 50px auto;
   padding: 20px;
-  padding-top: 50px;
   border: 1px solid #ccc;
   border-radius: 10px;
   background-color: #fff;
@@ -137,8 +147,8 @@ input {
 }
 
 .login-form .logo {
-  margin-top: 150px;
   margin-left: 140px;
+  margin-top: -50px;
   width: 80px;
   height: 80px;
   border-radius: 50%;
@@ -185,7 +195,8 @@ input {
 
 .quiz-box {
   border: 1px solid #ddd;
-  border-radius: 5px;
+  border-radius: 20px;
+  margin-top: 20px;
   padding: 1rem;
   background-color: white;
   text-align: center;
@@ -197,6 +208,16 @@ input {
 
 .quiz-box p {
   margin-bottom: 1rem;
+}
+
+.quiz-box button {
+  background-color:rgb(135, 217, 225);
+  padding: 10px;
+  border-radius: 20px;
+}
+
+.quiz-box button:hover {
+  background-color:rgb(115, 186, 193);
 }
 
 .profile-details {
@@ -259,6 +280,12 @@ input {
 .main-page .header {
   width: 100%;
   text-align: center;
+}
+
+.main-page .logo {
+  position: absolute;
+  top: 10px;
+  left: 10px;
 }
 
 .main-page .profile-icon {
