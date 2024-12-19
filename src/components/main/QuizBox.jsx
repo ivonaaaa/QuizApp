@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from '../common/Button';
+import "/src/App.css";
 
 const QuizBox = ({ themeName, description, onSelect }) => {
   return (

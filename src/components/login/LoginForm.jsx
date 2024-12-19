@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Button from '../common/Button';
 import InputField from '../common/InputField';
+import "/src/App.css";
 
 const LoginForm = ({ onSubmit }) => {
   const [email, setEmail] = useState('');

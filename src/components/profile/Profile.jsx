@@ -1,6 +1,7 @@
 import React from "react";
 import ProfileDetails from "./ProfileDetails";
 import Button from "../common/Button";
+import "/src/App.css";
 
 const Profile = ({ onLogout, onBack }) => {
   return (

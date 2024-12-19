@@ -1,7 +1,8 @@
 import React from 'react';
+import "/src/App.css";
 
 const Logo = ({ src, alt }) => {
-  return <img className="logo" src={src} alt={alt || 'App Logo'} />;
+  return <img className="logo" src="\images\GQA_logo.jpg" alt={alt || 'App Logo'} />;
 };
 
 export default Logo;

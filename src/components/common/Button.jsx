@@ -1,5 +1,5 @@
-// src/components/common/Button.js
 import React from 'react';
+import "/src/App.css";
 
 const Button = ({ label, onClick, style }) => {
   return (
