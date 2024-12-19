@@ -5,63 +5,68 @@
     align-items: center;
     background-image: url("/images/GQA_gradient.png");
     background-size: cover;
-  }
+}
   
-  .login-form {
-    width: 100%;
-    max-width: 400px;
-    margin: 50px auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-  }
+.login-form {
+  width: 100%;
+  max-width: 300px;
+  margin: 50px;
+  margin-top: -50px;
+  padding: 20px;
+  padding-top: 0px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
   
-  .login-form .logo {
-    margin-left: 140px;
-    margin-top: -50px;
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    object-fit: cover;
-    display: block;
-  }
+.login-form .logo {
+  margin: 0 auto 10px;
+  display: block;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  position: relative;
+}
   
-  .login-form input {
-    width: 100%;
-    margin-bottom: 15px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1rem;
-    background-color: #f9f9f9;
-    color: #333;
-  }
+.login-form input {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  background-color: #f9f9f9;
+  color: #333;
+}
   
-  .login-form button {
-    width: 30%;
-    padding: 10px;
-    margin-top: 10px;
-    font-size: 1rem;
-    color: #fff;
-    background-color: #4CAF50;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-  }
+.login-form button {
+  width: 50%;
+  padding: 10px;
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
   
-  .login-form button:hover {
-    background-color: #45a049;
-  }
+.login-form button:hover {
+  background-color: #45a049;
+}
   
-  .login-form .error {
-    color: red;
-  }
+.login-form .error {
+  color: red;
+}
   
-  .login-form input:focus {
-    border-color: darkgray;
-    box-shadow: 0 0 5px darkgray;
-    outline: none;
-  }
+.login-form input:focus {
+  border-color: darkgray;
+  box-shadow: 0 0 5px darkgray;
+  outline: none;
+}

@@ -7,7 +7,7 @@ const QuizBox = ({ themeName, description, onSelect }) => {
     <div className="quiz-box">
       <h2>{themeName}</h2>
       <p>{description}</p>
-      <Button label="Start Quiz" onClick={onSelect} />
+      <Button label="Start" onClick={onSelect} />
     </div>
   );
 };

@@ -2,7 +2,7 @@ import React from 'react';
 import ProfileIcon from '../common/ProfileIcon';
 import "/src/App.css";
 
-const ProfileDetails = ({ username, onLogout }) => {
+const ProfileDetails = ({ username }) => {
   return (
     <div className="profile-details">
       <ProfileIcon />
