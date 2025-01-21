@@ -1,14 +1,16 @@
 import React from "react";
 import ProfileDetails from "./ProfileDetails";
 import Button from "../common/Button";
-import "/src/App.css";
+import Header from "../common/Header";
+import "/src/components/profile/Profile.css";
 
 const Profile = ({ onLogout, onBack }) => {
   return (
     <div className="profile-page">
-      <ProfileDetails username="Player1" onLogout={onLogout} />
-      <Button label="Back to Main" onClick={onBack} />
-      <Button label="Logout" onClick={onLogout} style={{ backgroundColor: "red" }} />
+      <Header image="/header-image.jpg" text="Get insight into your results." />
+      <Button  className="back-to-main" label="Back" onClick={onBack} />
+      <ProfileDetails username="Player1" />
+      <Button className="logout" label="Log out" onClick={onLogout} />
     </div>
   );
 };

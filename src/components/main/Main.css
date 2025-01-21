@@ -1,0 +1,61 @@
+.main-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+  
+.main-page .header {
+  height: 320px;
+}
+
+.main-page .logo {
+  top: 10px;
+  left: 10px;
+}
+
+.main-page .profile-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: inline-block;
+  margin-top: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.main-page .profile-icon img {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+
+.quiz-box {
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  margin-top: 20px;
+  padding: 1rem;
+  background-color: white;
+  text-align: center;
+}
+  
+.quiz-box h2 {
+  margin-bottom: 0.5rem;
+}
+  
+.quiz-box p {
+  margin-bottom: 1rem;
+}
+  
+.quiz-box button {
+  min-width: 80px;
+  min-height: 30px;
+  background-color: rgb(97, 240, 253);
+  padding: 10px;
+  border-radius: 20px;
+}
+
+.quiz-box button:hover {
+  background-color: rgb(103, 206, 215);
+}

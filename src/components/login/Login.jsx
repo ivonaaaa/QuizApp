@@ -1,6 +1,6 @@
 import React from "react";
 import LoginForm from "./LoginForm";
-import "/src/App.css";
+import "/src/components/login/Login.css";
 
 const Login = ({ onLogin }) => {
   const handleLogin = (credentials) => {
