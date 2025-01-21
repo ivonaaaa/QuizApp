@@ -8,7 +8,12 @@ import "/src/components/main/Main.css";
 const Main = ({ onProfileClick, onQuizClick }) => {
   return (
     <div className="main-page">
-      <Header title="Welcome to Gaming Quiz App!" image="/header-image.jpg" text="Choose a quiz and test your knowledge on gaming industry." />
+      {/* ode treba dodat dobrodosli {ime}... */}
+      <Header
+        title="Welcome to Gaming Quiz App!"
+        image="/header-image.jpg"
+        text="Choose a quiz and test your knowledge on gaming industry."
+      />
       <Logo />
       <ProfileIcon onClick={onProfileClick} />
       <QuizBox

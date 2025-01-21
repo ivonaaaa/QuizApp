@@ -1,0 +1,10 @@
+{
+    "users": [
+      { "id": 1, "name": "John Doe", "email": "john@example.com" },
+      { "id": 2, "name": "Jane Smith", "email": "jane@example.com" }
+    ],
+    "quizzes": [
+      { "id": 1, "theme": "Video Games", "description": "Test your knowledge of classic games!" },
+      { "id": 2, "theme": "Modern Games", "description": "How much do you know about current titles?" }
+    ]
+}
