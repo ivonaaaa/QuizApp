@@ -1,40 +1,19 @@
 const express = require("express");
 const cors = require("cors");
-const mongoose = require("mongoose");
-const { use } = require("react");
+
+require("dotenv").config();
+const connectToDatabase = require("./config/database");
+connectToDatabase();
+
+//! zadnja predavanja???
+//const router = express.Router();
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-mongoose.connect(
-  "mongodb://localhost:27017/QuizAppDB",
-  { family: 4 },
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  }
-);
-
-const database = mongoose.connection;
-
-database.on("error", (error) => {
-  console.error("Error with connectiong:", error);
-});
-database.once("open", function () {
-  console.log("Connected to the database!");
-});
-
-const { Schema } = mongoose;
-
-const userSchema = new Schema({
-  email: { type: String, required: true },
-  password: { type: String, required: true },
-  username: String,
-});
-const User = mongoose.model("User", userSchema);
-
+//! zahtjevi al ovo cu prebacit sve u routes
 app.post("/users", async (req, res) => {
   const newUser = new User({
     email: req.body.email,
@@ -49,16 +28,7 @@ app.post("/users", async (req, res) => {
   }
 });
 
-//
-//
-//
-//
-//
-app.get("/", (req, res) => {
-  res.send("Hi from the Express server! :D");
-});
-
-const PORT = 3000;
+const PORT = process.env.PORT;
 app.listen(PORT, () => {
   console.log(`Server listens to requests on port ${PORT}.`);
 });
