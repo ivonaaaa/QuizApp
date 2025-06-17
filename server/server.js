@@ -11,12 +11,17 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-//! endpointovi
 const userRoutes = require("./routes/userRoutes");
 const quizRoutes = require("./routes/quizRoutes");
+const questionRoutes = require("./routes/questionRoutes");
+const answerRoutes = require("./routes/answerRoutes");
+const resultRoutes = require("./routes/resultRoutes");
 
 app.use("/users", userRoutes);
 app.use("/quizzes", quizRoutes);
+app.use("/questions", questionRoutes);
+app.use("/answers", answerRoutes);
+app.use("/results", resultRoutes);
 
 const PORT = process.env.PORT;
 app.listen(PORT, () => {

@@ -64,6 +64,12 @@
   z-index: 2;
 }
 
+.main-page .profile-icon:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+  transition: transform 0.2s ease-in-out;
+}
+
 .main-page .profile-icon img {
   border-radius: 50%;
   width: 40px;

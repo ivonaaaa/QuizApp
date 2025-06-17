@@ -322,7 +322,12 @@ const seed = async () => {
   for (const quiz of sampleQuizzes) {
     await Result.create({
       Score: Math.floor(Math.random() * 100),
-      UserId: user._id,
+      UserId: user1._id,
+      QuizId: quiz._id,
+    });
+    await Result.create({
+      Score: Math.floor(Math.random() * 100),
+      UserId: user2._id,
       QuizId: quiz._id,
     });
   }

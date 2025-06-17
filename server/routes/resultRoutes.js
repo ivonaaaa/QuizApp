@@ -1,22 +1,22 @@
 const express = require("express");
 const router = express.Router();
-const { Quiz } = require("../models/Schema");
+const { Result } = require("../models/Schema");
 
 router.get("/", async (req, res) => {
   try {
-    const quizzes = await Quiz.find();
-    res.status(200).json(quizzes);
+    const results = await Result.find();
+    res.status(200).json(results);
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
 });
 
 router.get("/id:", async (req, res) => {
-  const quizId = req.params.id;
+  const resultId = req.params.id;
   try {
-    const quiz = await Quiz.findById(quizId);
-    if (!quiz) return res.status(404).json({ message: "Quiz not found" });
-    res.status(200).json(quiz);
+    const result = await Result.findById(resultId);
+    if (!result) return res.status(404).json({ message: "Result not found" });
+    res.status(200).json(result);
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
