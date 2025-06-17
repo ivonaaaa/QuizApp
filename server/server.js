@@ -1,16 +1,17 @@
 require("dotenv").config();
-const express = require("express");
-const cors = require("cors");
 
 const connectToDatabase = require("./config/database");
 connectToDatabase();
 
+const express = require("express");
+//const cors = require("cors");
 const app = express();
-app.use(cors());
+
+//app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// endpointovi
+//! endpointovi
 const userRoutes = require("./routes/userRoutes");
 app.use("/users", userRoutes);
 
