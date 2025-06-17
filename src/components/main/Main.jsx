@@ -23,6 +23,17 @@ const Main = ({ onProfileClick, onQuizClick }) => {
 
   return (
     <div className="main-page">
+      <img
+        src="../../../images/orange.png"
+        alt="joystick"
+        className="sticker"
+      ></img>
+      <img
+        src="../../../images/stick.png"
+        alt="stick"
+        className="sticker"
+        id="stick"
+      ></img>
       <Header
         title="Welcome to Gaming Quiz App!"
         image="/header-image.jpg"

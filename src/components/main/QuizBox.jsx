@@ -1,5 +1,5 @@
 import Button from "../common/Button";
-import "/src/App.css";
+import "./Main.css";
 
 const QuizBox = ({ title, description, onSelect }) => {
   return (
