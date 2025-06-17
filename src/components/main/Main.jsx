@@ -1,14 +1,28 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import ProfileIcon from "../common/ProfileIcon";
 import QuizBox from "./QuizBox";
 import Header from "../common/Header";
 import Logo from "../common/Logo";
+import { GetAllQuizzes } from "../../api/quizApi";
 import "/src/components/main/Main.css";
 
 const Main = ({ onProfileClick, onQuizClick }) => {
+  const [quizzes, setQuizzes] = useState([]);
+
+  useEffect(() => {
+    const fetchQuizzes = async () => {
+      try {
+        const data = await GetAllQuizzes();
+        setQuizzes(data);
+      } catch (err) {
+        console.error("Failed to fetch quizzes:", err);
+      }
+    };
+    fetchQuizzes();
+  }, []);
+
   return (
     <div className="main-page">
-      {/* ode treba dodat dobrodosli {ime}... */}
       <Header
         title="Welcome to Gaming Quiz App!"
         image="/header-image.jpg"
@@ -16,11 +30,16 @@ const Main = ({ onProfileClick, onQuizClick }) => {
       />
       <Logo />
       <ProfileIcon onClick={onProfileClick} />
-      <QuizBox
-        themeName="Game Knowledge"
-        description="Test your gaming knowledge"
-        onSelect={onQuizClick}
-      />
+      <div className="quizzes-container">
+        {quizzes.map((quiz) => (
+          <QuizBox
+            key={quiz._id}
+            title={quiz.title}
+            description={quiz.description}
+            onSelect={() => onQuizClick(quiz.id)}
+          />
+        ))}
+      </div>
     </div>
   );
 };

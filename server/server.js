@@ -13,7 +13,10 @@ app.use(express.urlencoded({ extended: true }));
 
 //! endpointovi
 const userRoutes = require("./routes/userRoutes");
+const quizRoutes = require("./routes/quizRoutes");
+
 app.use("/users", userRoutes);
+app.use("/quizzes", quizRoutes);
 
 const PORT = process.env.PORT;
 app.listen(PORT, () => {

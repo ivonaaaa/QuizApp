@@ -1,0 +1,10 @@
+import axiosInstance from "./axiosInstance";
+
+export const GetAllQuizzes = async () => {
+  const res = await axiosInstance.get("/quizzes");
+  return res.data;
+};
+
+export const GetQuizById = async () => {
+  const res = await axiosInstance.get(`/quizzes/${id}`);
+};
