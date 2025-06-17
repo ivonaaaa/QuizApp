@@ -1,11 +1,17 @@
-import React from "react";
 import LoginForm from "./LoginForm";
+import { loginUser } from "../../api/userApi";
 import "/src/components/login/Login.css";
 
 const Login = ({ onLogin }) => {
-  const handleLogin = (credentials) => {
-    console.log("User logged in:", credentials);
-    onLogin();
+  const handleLogin = async ({ email, password }) => {
+    try {
+      const user = await loginUser({ email, password });
+      if (user) onLogin();
+      else alert("Invalid credentials");
+    } catch (err) {
+      console.error(err);
+      alert("Login failed");
+    }
   };
 
   return (
