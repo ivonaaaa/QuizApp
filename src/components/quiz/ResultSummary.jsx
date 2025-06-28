@@ -28,17 +28,11 @@ const ResultSummary = ({
         </div>
       </div>
 
-      <div className="quiz-result-info">
-        <p className="result-saved">Your result has been saved!</p>
-      </div>
-
-      <div className="result-actions">
-        <Button
-          label="Take Quiz Again"
-          onClick={onRestart}
-          className="restart-button"
-        />
-      </div>
+      <Button
+        label="Take Quiz Again"
+        onClick={onRestart}
+        className="restart-button"
+      />
     </div>
   );
 };

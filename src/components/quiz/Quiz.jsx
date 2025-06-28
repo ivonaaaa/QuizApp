@@ -128,11 +128,7 @@ const Quiz = ({ onBackToMain, userId, quizId }) => {
         className="back-button"
       />
 
-      {submitting && (
-        <div className="submitting-overlay">
-          <p>Submitting your answers...</p>
-        </div>
-      )}
+      {submitting && <p>Submitting your answers...</p>}
 
       {!showSummary ? (
         <div>
