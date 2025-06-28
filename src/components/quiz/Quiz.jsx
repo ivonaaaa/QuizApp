@@ -66,17 +66,12 @@ const Quiz = ({ onBackToMain, userId, quizId }) => {
     if (currentQuestionIndex < questions.length - 1)
       setCurrentQuestionIndex((prev) => prev + 1);
     else {
-      await submitQuizAnswers(updatedUserAnswers);
+      await submitQuizAnswers(userId, quizId, updatedUserAnswers);
       setShowSummary(true);
     }
   };
 
-  const submitQuizAnswers = async (finalUserAnswers) => {
-    if (!userId || !quizId) {
-      console.error("Missing required fields");
-      return;
-    }
-
+  const submitQuizAnswers = async (userId, quizId, finalUserAnswers) => {
     setSubmitting(true);
     try {
       const formattedAnswers = finalUserAnswers.map((answer) => ({
@@ -85,7 +80,6 @@ const Quiz = ({ onBackToMain, userId, quizId }) => {
       }));
       const result = await SubmitQuizAnswers(userId, quizId, formattedAnswers);
       setQuizResult(result);
-      console.log("Quiz submitted successfully:", result);
 
       if (result.result && result.result.score !== undefined)
         setScore(result.result.correctAnswers);

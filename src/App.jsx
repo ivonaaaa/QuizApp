@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import Login from "./components/login/Login";
 import Main from "./components/main/Main";
 import Profile from "./components/profile/Profile";
@@ -11,14 +11,26 @@ const App = () => {
   const [currentUser, setCurrentUser] = useState(null);
   const [userId, setUserId] = useState(null);
 
+  useEffect(() => {
+    const savedUser = localStorage.getItem("currentUser");
+    if (savedUser) {
+      const parsedUser = JSON.parse(savedUser);
+      setCurrentUser(parsedUser);
+      setUserId(parsedUser.id || parsedUser._id);
+      setCurrentPage("main");
+    } else {
+      setCurrentPage("login");
+    }
+  }, []);
+
   const navigateTo = (page) => {
     setCurrentPage(page);
   };
 
   const handleLogin = (userData) => {
-    setCurrentUser(userData);
-    setUserId(userData._id || userData.id);
-    localStorage.setItem("currentUser", JSON.stringify(userData));
+    setCurrentUser(userData.user);
+    setUserId(userData.user.id);
+    localStorage.setItem("currentUser", JSON.stringify(userData.user));
     navigateTo("main");
   };
 

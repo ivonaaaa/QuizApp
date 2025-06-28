@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const { Question } = require("../models/Schema");
 const { Answer } = require("../models/Schema");
 const { Result } = require("../models/Schema");
 
@@ -38,23 +39,32 @@ router.post("/submit", async (req, res) => {
     if (!userId || !quizId || !userAnswers || !Array.isArray(userAnswers))
       return res.status(400).json({ message: "Missing required fields" });
 
-    const correctAnswers = await Answer.find({ QuizId: quizId });
+    const questions = await Question.find({ QuizId: quizId });
+    if (questions.length === 0)
+      return res.status(404).json({ message: "No questions found for quiz" });
+
+    const questionIds = questions.map((q) => q._id.toString());
+
+    const correctAnswers = await Answer.find({
+      QuestionId: { $in: questionIds },
+    });
     if (correctAnswers.length === 0)
       return res.status(404).json({ message: "No correct answers found" });
 
-    let score = 0;
-    const totalQuestions = correctAnswers.length;
-
     const correctAnswerMap = new Map();
     correctAnswers.forEach((answer) => {
-      correctAnswerMap.set(answer.QuestionId.toString(), answer.answerText);
+      if (answer.isCorrect) {
+        correctAnswerMap.set(answer.QuestionId.toString(), answer.answerText);
+      }
     });
+
+    let score = 0;
+    const totalQuestions = questions.length;
 
     userAnswers.forEach((userAnswer) => {
       const questionId = userAnswer.questionId;
       const userAnswerText = userAnswer.answerText;
       const correctAnswer = correctAnswerMap.get(questionId);
-
       if (correctAnswer === userAnswerText) score++;
     });
 
