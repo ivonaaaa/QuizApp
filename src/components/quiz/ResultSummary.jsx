@@ -13,7 +13,11 @@ const ResultSummary = ({
 
   return (
     <div className="result-summary">
-      <h2>Quiz Completed!</h2>
+      <img
+        src="../../../images/game_over.png"
+        alt="Game over image"
+        className="game-over"
+      />
 
       <div className="score-display">
         <div className="score-circle">

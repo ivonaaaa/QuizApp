@@ -119,3 +119,9 @@
 .quiz-box button:hover {
   background-color: #67ced7;
 }
+
+@media (max-width: 1300px) {
+  .sticker {
+    display: none;
+  }
+}

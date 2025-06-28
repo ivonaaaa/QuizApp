@@ -76,6 +76,25 @@
   cursor: not-allowed;
 }
 
+.game-over {
+  width: 250px;
+  height: auto;
+  margin-bottom: -2rem;
+  animation: move 6s ease-in-out infinite;
+}
+
+@keyframes move {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  50% {
+    transform: translate(10px, -10px) scale(1.05);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
 .result-summary h2 {
   margin-top: 100px;
   color: #5f6fac;
@@ -87,9 +106,11 @@
   justify-content: center;
   align-items: center;
   gap: 2rem;
+  width: 450px;
+  margin: 0 auto;
   margin-bottom: 2rem;
   padding: 1rem;
-  background-color: #67ced7;
+  background-color: #a9b3dc;
   border-radius: 60px;
 }
 
@@ -97,17 +118,18 @@
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  background-color: #61f0fd;
+  background-color: #5f6fac;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 1.8rem;
   font-weight: 700;
-  color: black;
+  color: #d7dcef;
 }
 
 .score-text {
   font-size: 1.2rem;
+  padding-right: 40px;
 }
 
 .restart-button {
