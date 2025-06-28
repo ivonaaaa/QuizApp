@@ -1,11 +1,11 @@
 .quiz-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
 }
- 
-.quiz-page .button.back {
+
+.back-button {
   position: absolute;
   top: 10px;
   left: 10px;

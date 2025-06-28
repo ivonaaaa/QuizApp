@@ -36,7 +36,10 @@ const App = () => {
         );
       case "quiz":
         return (
-          <Quiz quizId={selectedQuizId} onBack={() => navigateTo("main")} />
+          <Quiz
+            quizId={selectedQuizId}
+            onBackToMain={() => navigateTo("main")}
+          />
         );
       default:
         return <Login onLogin={() => navigateTo("main")} />;
