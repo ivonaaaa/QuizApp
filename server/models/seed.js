@@ -56,7 +56,7 @@ const seed = async () => {
     },
     {
       title: "Retro Gaming",
-      description: "Test your knowledge about classic video games.",
+      description: "Dive into game classics.",
       questions: [
         {
           questionText: "Which game popularized side-scrolling platformers?",

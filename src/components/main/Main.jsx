@@ -51,6 +51,13 @@ const Main = ({ onProfileClick, onQuizClick }) => {
           />
         ))}
       </div>
+      <footer>
+        <p>
+          © 2025 Gaming Quiz App. All rights reserved. Designed and built by
+          Ivona Ercegovac as a part of{" "}
+          <span id="faculty">Faculty of Science in Split</span> project.
+        </p>
+      </footer>
     </div>
   );
 };

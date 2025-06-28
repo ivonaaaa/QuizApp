@@ -9,21 +9,17 @@ import "/src/components/quiz/Quiz.css";
 
 const Quiz = ({ onBackToMain, userId, quizId }) => {
   const [questions, setQuestions] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [selectedAnswerId, setSelectedAnswerId] = useState(null);
+  const [isAnswerCorrect, setIsAnswerCorrect] = useState(null);
+
   const [score, setScore] = useState(0);
   const [showSummary, setShowSummary] = useState(false);
   const [userAnswers, setUserAnswers] = useState([]);
-  const [submitting, setSubmitting] = useState(false);
   const [quizResult, setQuizResult] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
-      if (!quizId) {
-        setLoading(false);
-        return;
-      }
-
       try {
         const questionsData = await GetQuestionsByQuizId(quizId);
         const questionsWithAnswers = await Promise.all(
@@ -36,10 +32,8 @@ const Quiz = ({ onBackToMain, userId, quizId }) => {
         );
 
         setQuestions(questionsWithAnswers);
-        setLoading(false);
       } catch (err) {
         console.error("Failed to load questions:", err);
-        setLoading(false);
       }
     };
 
@@ -47,11 +41,16 @@ const Quiz = ({ onBackToMain, userId, quizId }) => {
   }, [quizId]);
 
   const handleAnswer = async (answerId) => {
+    if (selectedAnswerId) return;
+
     const currentQuestion = questions[currentQuestionIndex];
     const selectedAnswer = currentQuestion.answers.find(
       (a) => a._id === answerId
     );
     const isCorrect = selectedAnswer?.isCorrect;
+
+    setSelectedAnswerId(answerId);
+    setIsAnswerCorrect(isCorrect);
 
     const userAnswer = {
       questionId: currentQuestion._id,
@@ -62,17 +61,22 @@ const Quiz = ({ onBackToMain, userId, quizId }) => {
     const updatedUserAnswers = [...userAnswers, userAnswer];
     setUserAnswers(updatedUserAnswers);
 
-    if (isCorrect) setScore((prev) => prev + 1);
-    if (currentQuestionIndex < questions.length - 1)
-      setCurrentQuestionIndex((prev) => prev + 1);
-    else {
-      await submitQuizAnswers(userId, quizId, updatedUserAnswers);
-      setShowSummary(true);
-    }
+    if (isCorrect) setScore((score) => score + 1);
+
+    setTimeout(async () => {
+      setSelectedAnswerId(null);
+      setIsAnswerCorrect(null);
+
+      if (currentQuestionIndex < questions.length - 1)
+        setCurrentQuestionIndex((prev) => prev + 1);
+      else {
+        await submitQuizAnswers(userId, quizId, updatedUserAnswers);
+        setShowSummary(true);
+      }
+    }, 1000);
   };
 
   const submitQuizAnswers = async (userId, quizId, finalUserAnswers) => {
-    setSubmitting(true);
     try {
       const formattedAnswers = finalUserAnswers.map((answer) => ({
         questionId: answer.questionId,
@@ -86,8 +90,6 @@ const Quiz = ({ onBackToMain, userId, quizId }) => {
     } catch (err) {
       console.error("Error submitting quiz:", err);
       alert("Failed to submit quiz");
-    } finally {
-      setSubmitting(false);
     }
   };
 
@@ -98,19 +100,6 @@ const Quiz = ({ onBackToMain, userId, quizId }) => {
     setUserAnswers([]);
     setQuizResult(null);
   };
-
-  if (loading) {
-    return (
-      <div className="quiz-page">
-        <Button
-          label="Back to Homepage"
-          onClick={onBackToMain}
-          className="back-button"
-        />
-        <p>Loading questions...</p>
-      </div>
-    );
-  }
 
   if (questions.length === 0) {
     return (
@@ -128,8 +117,6 @@ const Quiz = ({ onBackToMain, userId, quizId }) => {
         className="back-button"
       />
 
-      {submitting && <p>Submitting your answers...</p>}
-
       {!showSummary ? (
         <div>
           <div className="quiz-progress">
@@ -140,9 +127,7 @@ const Quiz = ({ onBackToMain, userId, quizId }) => {
               <div
                 className="progress-fill"
                 style={{
-                  width: `${
-                    ((currentQuestionIndex + 1) / questions.length) * 100
-                  }%`,
+                  width: `${(currentQuestionIndex / questions.length) * 100}%`,
                 }}
               />
             </div>
@@ -152,7 +137,8 @@ const Quiz = ({ onBackToMain, userId, quizId }) => {
             question={questions[currentQuestionIndex].questionText}
             answers={questions[currentQuestionIndex].answers}
             onAnswer={handleAnswer}
-            disabled={submitting}
+            selectedAnswerId={selectedAnswerId}
+            isAnswerCorrect={isAnswerCorrect}
           />
         </div>
       ) : (

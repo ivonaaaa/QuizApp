@@ -81,7 +81,7 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 2rem;
-  padding: 0 50px 100px 50px;
+  padding: 0 50px 70px 50px;
 }
 
 .quiz-box {
@@ -118,6 +118,16 @@
 
 .quiz-box button:hover {
   background-color: #67ced7;
+}
+
+footer p {
+  font-size: 0.9rem;
+  color: #888;
+  text-align: center;
+}
+
+#faculty {
+  color: #61f0fd;
 }
 
 @media (max-width: 1300px) {

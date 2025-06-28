@@ -1,7 +1,7 @@
 .quiz-page {
   max-width: 600px;
   margin: 2rem auto;
-  padding: 2rem;
+  padding: 1rem;
   text-align: center;
   position: relative;
 }
@@ -11,7 +11,6 @@
   padding: 10px 15px 10px 15px;
   border-radius: 20px;
 }
-
 .back-button:hover {
   background-color: #ddd;
   transition: background-color 0.2s ease-in-out;
@@ -21,7 +20,6 @@
   margin-bottom: 1rem;
   font-weight: 600;
 }
-
 .progress-bar {
   height: 10px;
   background-color: #ddd;
@@ -29,7 +27,6 @@
   overflow: hidden;
   margin-top: 5px;
 }
-
 .progress-fill {
   height: 100%;
   background-color: #5f6fac;
@@ -66,14 +63,13 @@
   font-weight: 600;
   transition: background-color 0.2s ease-in-out;
 }
-
-.answer-button:hover:not(:disabled) {
-  background-color: #67ced7;
+.answer-button.correct {
+  background-color: #1df88e;
+  color: white;
 }
-
-.answer-button:disabled {
-  background-color: #bbb;
-  cursor: not-allowed;
+.answer-button.incorrect {
+  background-color: #ec4e7b;
+  color: white;
 }
 
 .game-over {
@@ -136,7 +132,6 @@
   padding: 10px 20px;
   border-radius: 25px;
 }
-
 .restart-button:hover {
   background-color: #ddd;
   transition: background-color 0.2s ease-in-out;
