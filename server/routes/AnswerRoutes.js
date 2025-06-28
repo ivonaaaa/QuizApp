@@ -23,6 +23,15 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+router.get("/byQuestion/:questionId", async (req, res) => {
+  try {
+    const answers = await Answer.find({ QuestionId: req.params.questionId });
+    res.status(200).json(answers);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
+
 router.post("/submit", async (req, res) => {
   try {
     const { userId, quizId, userAnswers } = req.body;

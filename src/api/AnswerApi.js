@@ -10,6 +10,11 @@ export const GetAnswerById = async (id) => {
   return res.data;
 };
 
+export const GetAnswersByQuestionId = async (questionId) => {
+  const res = await axiosInstance.get(`/answers/byQuestion/${questionId}`);
+  return res.data;
+};
+
 export const SubmitQuizAnswers = async (userId, quizId, userAnswers) => {
   const res = await axiosInstance.post("/answers/submit", {
     userId,

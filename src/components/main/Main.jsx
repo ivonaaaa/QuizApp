@@ -47,7 +47,7 @@ const Main = ({ onProfileClick, onQuizClick }) => {
             key={quiz._id}
             title={quiz.title}
             description={quiz.description}
-            onSelect={() => onQuizClick(quiz.id)}
+            onSelect={() => onQuizClick(quiz._id)}
           />
         ))}
       </div>

@@ -6,7 +6,7 @@ const Login = ({ onLogin }) => {
   const handleLogin = async ({ email, password }) => {
     try {
       const user = await loginUser({ email, password });
-      if (user) onLogin();
+      if (user) onLogin(user);
       else alert("Invalid credentials");
     } catch (err) {
       console.error(err);

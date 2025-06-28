@@ -7,4 +7,5 @@ export const GetAllQuizzes = async () => {
 
 export const GetQuizById = async (id) => {
   const res = await axiosInstance.get(`/quizzes/${id}`);
+  return res.data;
 };
