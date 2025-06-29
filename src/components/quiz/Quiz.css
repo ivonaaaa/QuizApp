@@ -59,17 +59,19 @@
 .answer-button {
   padding: 10px;
   border-radius: 20px;
-  background-color: #61f0fd;
+  background-color: #bcf4ff;
   font-weight: 600;
   transition: background-color 0.2s ease-in-out;
 }
+.answer-button:hover {
+  background-color: #98d8e4;
+  transition: background-color 0.2s ease-in-out;
+}
 .answer-button.correct {
-  background-color: #1df88e;
-  color: white;
+  background-color: #56f9aa;
 }
 .answer-button.incorrect {
   background-color: #ec4e7b;
-  color: white;
 }
 
 .game-over {

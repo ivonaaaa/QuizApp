@@ -7,12 +7,11 @@ import "/src/App.css";
 const LoginForm = ({ onSubmit }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!email || !password) {
-      setErrorMessage("Please fill in both fields.");
+      alert("Invalid credentials. Try again.");
       return;
     }
     onSubmit({ email, password });
@@ -33,7 +32,6 @@ const LoginForm = ({ onSubmit }) => {
         onChange={(e) => setPassword(e.target.value)}
         placeholder="Password"
       />
-      {errorMessage && <p className="error">{errorMessage}</p>}
       <Button label="Login" onClick={handleSubmit} />
     </form>
   );

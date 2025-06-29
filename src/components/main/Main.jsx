@@ -55,7 +55,10 @@ const Main = ({ onProfileClick, onQuizClick }) => {
         <p>
           © 2025 Gaming Quiz App. All rights reserved. Designed and built by
           Ivona Ercegovac as a part of{" "}
-          <span id="faculty">Faculty of Science in Split</span> project.
+          <a href="https://www.pmfst.unist.hr/" target="_blank">
+            Faculty of Science in Split
+          </a>{" "}
+          project.
         </p>
       </footer>
     </div>
