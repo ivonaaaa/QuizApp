@@ -44,8 +44,14 @@
   }
 }
 
-.main-page .header {
+.header {
   height: 320px;
+}
+.header h1 {
+  padding: 0 20px;
+}
+.header p {
+  color: #dfdfdf;
 }
 
 .main-page .logo {
@@ -97,6 +103,7 @@
   overflow-y: hidden;
 }
 .quiz-box:hover {
+  cursor: pointer;
   background-color: #c7d1fb;
   transform: scale(1.05);
 }

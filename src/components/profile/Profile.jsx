@@ -1,15 +1,17 @@
-import React from "react";
-import ProfileDetails from "./ProfileDetails";
+import { useEffect, useState } from "react";
 import Button from "../common/Button";
 import Header from "../common/Header";
+import ProfileDetails from "./ProfileDetails";
+import ResultDetails from "./ResultDetails";
 import "/src/components/profile/Profile.css";
 
-const Profile = ({ onLogout, onBack }) => {
+const Profile = ({ currentUser, userId, onLogout, onBack }) => {
   return (
     <div className="profile-page">
       <Header image="/header-image.jpg" text="Get insight into your results." />
-      <Button  className="back-to-main" label="Back" onClick={onBack} />
-      <ProfileDetails username="Player1" />
+      <Button className="back-to-main" label="Back" onClick={onBack} />
+      <ProfileDetails currentUser={currentUser} />
+      <ResultDetails userId={userId} />
       <Button className="logout" label="Log out" onClick={onLogout} />
     </div>
   );

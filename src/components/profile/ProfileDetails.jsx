@@ -1,12 +1,16 @@
-import React from 'react';
-import ProfileIcon from '../common/ProfileIcon';
+import ProfileIcon from "../common/ProfileIcon";
 import "/src/App.css";
 
-const ProfileDetails = ({ username }) => {
+const ProfileDetails = ({ currentUser }) => {
+  const userName =
+    currentUser.email.split("@")[0].charAt(0).toUpperCase() +
+    currentUser.email.split("@")[0].slice(1);
+
   return (
     <div className="profile-details">
       <ProfileIcon />
-      <h2>{username}</h2>
+      <h1>{userName}</h1>
+      <p>{currentUser.email}</p>
     </div>
   );
 };

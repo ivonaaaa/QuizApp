@@ -6,13 +6,12 @@
 }
 
 .profile-page .header {
-  height: 100px;
-  z-index: 1;
+  height: 150px;
 }
 
 .profile-page .profile-icon {
   position: absolute;
-  top: 120px;
+  top: 170px;
   left: 30px;
   z-index: 2;
 }
@@ -25,12 +24,37 @@
 .profile-details {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  margin-top: 150px;
+  align-self: baseline;
+  margin: 15px 0 0 240px;
 }
-.profile-details h2 {
-  margin-top: 1rem;
+.profile-details h1 {
+  color: #5f6fac;
+  font-size: 2.5rem;
+}
+.profile-details p {
+  margin-top: -20px;
+  color: #888;
+}
+
+.results {
+  width: 60%;
+  align-self: baseline;
+}
+.results h2 {
+  color: #5f6fac;
+}
+.results table {
+  border-collapse: collapse;
+  width: 100%;
+}
+.results table th,
+.results table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+.results table th {
+  background-color: #f2f2f2;
 }
 
 button.back-to-main {

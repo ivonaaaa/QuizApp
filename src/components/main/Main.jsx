@@ -6,8 +6,12 @@ import Logo from "../common/Logo";
 import { GetAllQuizzes } from "../../api/quizApi";
 import "/src/components/main/Main.css";
 
-const Main = ({ onProfileClick, onQuizClick }) => {
+const Main = ({ currentUser, onProfileClick, onQuizClick }) => {
   const [quizzes, setQuizzes] = useState([]);
+  const userName =
+    currentUser.email.split("@")[0].charAt(0).toUpperCase() +
+    currentUser.email.split("@")[0].slice(1);
+  const title = "Welcome to Gaming Quiz App, " + userName + "!";
 
   useEffect(() => {
     const fetchQuizzes = async () => {
@@ -35,7 +39,7 @@ const Main = ({ onProfileClick, onQuizClick }) => {
         id="stick"
       ></img>
       <Header
-        title="Welcome to Gaming Quiz App!"
+        title={title}
         image="/header-image.jpg"
         text="Choose a quiz and test your knowledge on gaming industry."
       />

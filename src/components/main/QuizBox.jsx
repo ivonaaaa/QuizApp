@@ -1,4 +1,3 @@
-import Button from "../common/Button";
 import Lottie from "lottie-react";
 import sparkle from "../../../images/sparkle.json";
 import "./Main.css";

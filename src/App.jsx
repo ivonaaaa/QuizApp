@@ -6,7 +6,7 @@ import Quiz from "./components/quiz/Quiz";
 import "/src/App.css";
 
 const App = () => {
-  const [currentPage, setCurrentPage] = useState("main"); //! ode vrati login kasnije
+  const [currentPage, setCurrentPage] = useState("login");
   const [selectedQuizId, setSelectedQuizId] = useState(null);
   const [currentUser, setCurrentUser] = useState(null);
   const [userId, setUserId] = useState(null);

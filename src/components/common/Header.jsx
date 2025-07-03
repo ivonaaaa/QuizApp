@@ -1,4 +1,4 @@
-import "/src/App.css";
+import "/src/components/main/Main.css";
 
 const Header = ({ title, image, text }) => {
   return (
