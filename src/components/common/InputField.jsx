@@ -1,4 +1,3 @@
-import React from 'react';
 import "/src/App.css";
 
 const InputField = ({ type, value, onChange, isValid, placeholder }) => {
@@ -9,7 +8,7 @@ const InputField = ({ type, value, onChange, isValid, placeholder }) => {
         value={value}
         onChange={onChange}
         placeholder={placeholder}
-        className={isValid ? 'valid' : 'invalid'}
+        className={isValid ? "valid" : "invalid"}
       />
     </div>
   );

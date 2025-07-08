@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Login from "./components/login/Login";
+import Auth from "./components/auth/auth";
 import Main from "./components/main/Main";
 import Profile from "./components/profile/Profile";
 import Quiz from "./components/quiz/Quiz";
@@ -39,7 +39,7 @@ const App = () => {
   const renderPage = () => {
     switch (currentPage) {
       case "login":
-        return <Login onLogin={handleLogin} />;
+        return <Auth onLogin={handleLogin} />;
 
       case "main":
         return (
@@ -72,7 +72,7 @@ const App = () => {
         );
 
       default:
-        return <Login onLogin={handleLogin} />;
+        return <Auth onLogin={handleLogin} />;
     }
   };
 

@@ -1,24 +1,33 @@
 import { useState } from "react";
-import Logo from "../common/Logo";
-import Button from "../common/Button";
-import InputField from "../common/InputField";
+import Logo from "./Logo";
+import Button from "./Button";
+import InputField from "./InputField";
 import "/src/App.css";
 
-const LoginForm = ({ onSubmit }) => {
+const AuthForm = ({ onLogin, onRegister }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
     if (!email || !password) {
       alert("Invalid credentials. Try again.");
       return;
     }
-    onSubmit({ email, password });
+    onLogin({ email, password });
+  };
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+    if (!email || !password) {
+      alert("Please enter email and password");
+      return;
+    }
+    onRegister({ email, password });
   };
 
   return (
-    <form className="login-form">
+    <form className="auth-form">
       <Logo className="logo" />
       <InputField
         type="email"
@@ -32,9 +41,12 @@ const LoginForm = ({ onSubmit }) => {
         onChange={(e) => setPassword(e.target.value)}
         placeholder="Password"
       />
-      <Button label="Login" onClick={handleSubmit} />
+      <div className="button-group">
+        <Button label="Login" onClick={handleLogin} />
+        <Button label="Register" onClick={handleRegister} />
+      </div>
     </form>
   );
 };
 
-export default LoginForm;
+export default AuthForm;

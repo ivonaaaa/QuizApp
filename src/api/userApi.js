@@ -5,6 +5,11 @@ export const loginUser = async ({ email, password }) => {
   return res.data;
 };
 
+export const registerUser = async ({ email, password }) => {
+  const res = await axiosInstance.post("users/register", { email, password });
+  return res.data;
+};
+
 export const GetAllUsers = async () => {
   const res = await axiosInstance.get("/users");
   return res.data;

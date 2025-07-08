@@ -5,6 +5,7 @@ const { User } = require("../models/Schema");
 
 router.post("/login", async (req, res) => {
   const { email, password } = req.body;
+
   try {
     const user = await User.findOne({ email });
     if (!user) return res.status(404).json({ message: "User not found" });
@@ -23,7 +24,30 @@ router.post("/login", async (req, res) => {
     });
   } catch (err) {
     res.status(500).json({ message: err.message });
-    s;
+  }
+});
+
+router.post("/register", async (req, res) => {
+  const { email, password } = req.body;
+
+  try {
+    const user = await User.create({
+      email: email,
+      username:
+        email.split("@")[0].charAt(0).toUpperCase() +
+        email.split("@")[0].slice(1),
+      password: await bcrypt.hash(password, 10),
+    });
+    res.status(200).json({
+      message: "Login successful",
+      user: {
+        id: user._id,
+        email: user.email,
+        username: user.username,
+      },
+    });
+  } catch (err) {
+    res.status(500).json({ messgae: err.message });
   }
 });
 
