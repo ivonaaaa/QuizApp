@@ -3,7 +3,8 @@ import Auth from "./components/auth/auth";
 import Main from "./components/main/Main";
 import Profile from "./components/profile/Profile";
 import Quiz from "./components/quiz/Quiz";
-import "/src/App.css";
+import "/src/styles/App.css";
+import "/src/styles/variables.css";
 
 const App = () => {
   const [currentPage, setCurrentPage] = useState("login");

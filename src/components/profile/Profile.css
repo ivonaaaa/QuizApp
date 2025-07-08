@@ -28,12 +28,12 @@
   margin: 15px 0 0 240px;
 }
 .profile-details h1 {
-  color: #5f6fac;
+  color: var(--color-indigo);
   font-size: 2.5rem;
 }
 .profile-details p {
   margin-top: -20px;
-  color: #888;
+  color: var(--color-grey);
 }
 
 .results {
@@ -42,7 +42,7 @@
   margin: 20px 80px;
 }
 .results h2 {
-  color: #5f6fac;
+  color: var(--color-indigo);
 }
 .results table {
   border-collapse: collapse;
@@ -50,12 +50,12 @@
 }
 .results table th,
 .results table td {
-  border: 1px solid #ddd;
+  border: 1px solid var(--color-light-grey);
   padding: 8px;
   text-align: left;
 }
 .results table th {
-  background-color: #f2f2f2;
+  background-color: var(--color-offwhite);
 }
 
 button.back-to-main {
@@ -68,7 +68,7 @@ button.back-to-main {
   z-index: 2;
 }
 button.back-to-main:hover {
-  background-color: #ddd;
+  background-color: var(--color-light-grey);
 }
 
 button.logout {
@@ -78,9 +78,9 @@ button.logout {
   min-width: 100px;
   min-height: 40px;
   border-radius: 20px;
-  background-color: #ec4e7b;
+  background-color: var(--color-magenta);
   z-index: 2;
 }
 button.logout:hover {
-  background-color: #ca5173;
+  background-color: var(--color-magenta-hover);
 }

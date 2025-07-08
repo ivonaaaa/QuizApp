@@ -21,15 +21,13 @@ const ResultSummary = ({
 
       <div className="score-display">
         <div className="score-circle">
-          <span className="percentage">{displayPercentage}%</span>
+          <span>{displayPercentage}%</span>
         </div>
 
-        <div className="score-details">
-          <p className="score-text">
-            You got <strong>{displayScore}</strong> out of{" "}
-            <strong>{total}</strong> questions correct
-          </p>
-        </div>
+        <p className="score-text">
+          You got <strong>{displayScore}</strong> out of{" "}
+          <strong>{total}</strong> questions correct
+        </p>
       </div>
 
       <Button

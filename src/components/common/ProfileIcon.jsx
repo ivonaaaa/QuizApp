@@ -1,4 +1,4 @@
-import "/src/App.css";
+import "/src/styles/App.css";
 
 const ProfileIcon = ({ onClick, src, alt }) => {
   return (

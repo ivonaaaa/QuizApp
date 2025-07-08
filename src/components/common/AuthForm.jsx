@@ -2,7 +2,7 @@ import { useState } from "react";
 import Logo from "./Logo";
 import Button from "./Button";
 import InputField from "./InputField";
-import "/src/App.css";
+import "/src/styles/App.css";
 
 const AuthForm = ({ onLogin, onRegister }) => {
   const [email, setEmail] = useState("");

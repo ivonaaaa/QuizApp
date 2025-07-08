@@ -4,26 +4,6 @@ const { Question } = require("../models/Schema");
 const { Answer } = require("../models/Schema");
 const { Result } = require("../models/Schema");
 
-router.get("/", async (req, res) => {
-  try {
-    const answers = await Answer.find();
-    res.status(200).json(answers);
-  } catch (err) {
-    res.status(500).json({ message: err.message });
-  }
-});
-
-router.get("/:id", async (req, res) => {
-  const answerId = req.params.id;
-  try {
-    const answer = await Answer.findById(answerId);
-    if (!answer) return res.status(404).json({ message: "Answer not found" });
-    res.status(200).json(answer);
-  } catch (err) {
-    res.status(500).json({ message: err.message });
-  }
-});
-
 router.get("/byQuestion/:questionId", async (req, res) => {
   try {
     const answers = await Answer.find({ QuestionId: req.params.questionId });

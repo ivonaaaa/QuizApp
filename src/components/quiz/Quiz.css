@@ -12,7 +12,7 @@
   border-radius: 20px;
 }
 .back-button:hover {
-  background-color: #ddd;
+  background-color: var(--color-light-grey);
   transition: background-color 0.2s ease-in-out;
 }
 
@@ -22,14 +22,14 @@
 }
 .progress-bar {
   height: 10px;
-  background-color: #ddd;
+  background-color: var(--color-light-grey);
   border-radius: 5px;
   overflow: hidden;
   margin-top: 5px;
 }
 .progress-fill {
   height: 100%;
-  background-color: #5f6fac;
+  background-color: var(--color-indigo);
   transition: width 0.3s ease-in-out;
 }
 
@@ -38,7 +38,7 @@
   flex-direction: column;
   padding: 1rem;
   height: 400px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--color-light-grey);
   border-radius: 15px;
   justify-content: center;
   background-color: white;
@@ -46,7 +46,7 @@
 
 .quiz-question {
   padding: 5px 20px 20px 20px;
-  color: #5f6fac;
+  color: var(--color-indigo);
   font-size: 1.3rem;
 }
 
@@ -59,19 +59,19 @@
 .answer-button {
   padding: 10px;
   border-radius: 20px;
-  background-color: #bcf4ff;
+  background-color: var(--color-blue);
   font-weight: 600;
   transition: background-color 0.2s ease-in-out;
 }
 .answer-button:hover {
-  background-color: #98d8e4;
+  background-color: var(--color-blue-hover);
   transition: background-color 0.2s ease-in-out;
 }
 .answer-button.correct {
-  background-color: #56f9aa;
+  background-color: var(--color-green);
 }
 .answer-button.incorrect {
-  background-color: #ec4e7b;
+  background-color: var(--color-magenta);
 }
 
 .game-over {
@@ -93,12 +93,6 @@
   }
 }
 
-.result-summary h2 {
-  margin-top: 100px;
-  color: #5f6fac;
-  font-size: 2rem;
-}
-
 .score-display {
   display: flex;
   justify-content: center;
@@ -116,7 +110,7 @@
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  background-color: #5f6fac;
+  background-color: var(--color-indigo);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -128,6 +122,7 @@
 .score-text {
   font-size: 1.2rem;
   padding-right: 40px;
+  color: black;
 }
 
 .restart-button {
@@ -135,6 +130,6 @@
   border-radius: 25px;
 }
 .restart-button:hover {
-  background-color: #ddd;
+  background-color: var(--color-light-grey);
   transition: background-color 0.2s ease-in-out;
 }

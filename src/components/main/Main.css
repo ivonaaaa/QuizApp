@@ -51,7 +51,7 @@
   padding: 0 20px;
 }
 .header p {
-  color: #dfdfdf;
+  color: var(--color-light-grey);
 }
 
 .main-page .logo {
@@ -109,7 +109,7 @@
 }
 
 .quiz-box h2 {
-  color: #5f6fac;
+  color: var(--color-indigo);
 }
 
 .quiz-box p {
@@ -132,15 +132,15 @@
 
 footer p {
   font-size: 0.9rem;
-  color: #888;
+  color: var(--color-grey);
   text-align: center;
 }
 
 footer a {
-  color: #61f0fd;
+  color: var(--color-turquoise);
 }
 footer a:hover {
-  color: #56cbd6;
+  color: var(--color-turquoise-hover);
 }
 
 @media (max-width: 1300px) {

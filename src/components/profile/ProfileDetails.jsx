@@ -1,5 +1,5 @@
 import ProfileIcon from "../common/ProfileIcon";
-import "/src/App.css";
+import "/src/styles/App.css";
 
 const ProfileDetails = ({ currentUser }) => {
   return (
