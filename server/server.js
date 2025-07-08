@@ -5,11 +5,14 @@ connectToDatabase();
 
 const express = require("express");
 const cors = require("cors");
+const infoMid = require("./error/middleware");
+
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(infoMid);
 
 const userRoutes = require("./routes/userRoutes");
 const quizRoutes = require("./routes/quizRoutes");
