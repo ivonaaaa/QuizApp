@@ -7,7 +7,9 @@ import { GetAnswersByQuestionId } from "../../api/answerApi";
 import { SubmitQuizAnswers } from "../../api/answerApi";
 import "/src/components/quiz/Quiz.css";
 
-const Quiz = ({ onBackToMain, userId, quizId }) => {
+const Quiz = ({ currentUser, quizId, onBackToMain }) => {
+  const userId = currentUser.id;
+
   const [questions, setQuestions] = useState([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedAnswerId, setSelectedAnswerId] = useState(null);

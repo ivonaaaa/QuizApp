@@ -11,14 +11,14 @@
 
 .profile-page .profile-icon {
   position: absolute;
-  top: 170px;
-  left: 30px;
+  top: 190px;
+  left: 60px;
   z-index: 2;
 }
 .profile-page .profile-icon img {
   border-radius: 50%;
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
 }
 
 .profile-details {
@@ -38,7 +38,8 @@
 
 .results {
   width: 60%;
-  align-self: baseline;
+  align-self: self-start;
+  margin: 20px 80px;
 }
 .results h2 {
   color: #5f6fac;

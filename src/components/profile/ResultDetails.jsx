@@ -22,22 +22,26 @@ const ResultDetails = ({ userId }) => {
     <div className="results">
       <h2>Your results:</h2>
 
-      <table>
-        <thead>
-          <tr>
-            <th>Quiz</th>
-            <th>Score</th>
-          </tr>
-        </thead>
-        <tbody>
-          {results.map((result) => (
-            <tr key={result._id}>
-              <td>{result.QuizId.title}</td>
-              <td>{result.Score}%</td>
+      {results.length === 0 ? (
+        <p>Play some quizzes and come back here to see the results!</p>
+      ) : (
+        <table>
+          <thead>
+            <tr>
+              <th>Quiz</th>
+              <th>Score</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {results.map((result) => (
+              <tr key={result._id}>
+                <td>{result.QuizId.title}</td>
+                <td>{result.Score}%</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
     </div>
   );
 };

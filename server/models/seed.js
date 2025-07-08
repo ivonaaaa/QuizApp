@@ -1,8 +1,9 @@
 require("dotenv").config();
 
-const mongoose = require("mongoose");
 const connectToDatabase = require("../config/database");
 const { User, Quiz, Question, Answer, Result } = require("./Schema");
+
+const bcrypt = require("bcrypt");
 
 const seed = async () => {
   await connectToDatabase();
@@ -17,14 +18,20 @@ const seed = async () => {
   console.log("Seeding new data...");
   const user1 = await User.create({
     email: "ivona@example.com",
-    password: "87654321",
+    password: await bcrypt.hash("87654321", 10),
     username: "Ivona",
   });
 
   const user2 = await User.create({
-    email: "Jure@example.com",
-    password: "87654321",
+    email: "jure@example.com",
+    password: await bcrypt.hash("87654321", 10),
     username: "Jure",
+  });
+
+  const user3 = await User.create({
+    email: "karmen@example.com",
+    password: await bcrypt.hash("87654321", 10),
+    username: "Karmen",
   });
 
   const quizzes = [
@@ -316,20 +323,6 @@ const seed = async () => {
         });
       }
     }
-  }
-
-  const sampleQuizzes = await Quiz.find().limit(2);
-  for (const quiz of sampleQuizzes) {
-    await Result.create({
-      Score: Math.floor(Math.random() * 100),
-      UserId: user1._id,
-      QuizId: quiz._id,
-    });
-    await Result.create({
-      Score: Math.floor(Math.random() * 100),
-      UserId: user2._id,
-      QuizId: quiz._id,
-    });
   }
 
   console.log("\nCompleted seeding.");

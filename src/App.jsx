@@ -9,18 +9,14 @@ const App = () => {
   const [currentPage, setCurrentPage] = useState("login");
   const [selectedQuizId, setSelectedQuizId] = useState(null);
   const [currentUser, setCurrentUser] = useState(null);
-  const [userId, setUserId] = useState(null);
 
   useEffect(() => {
     const savedUser = localStorage.getItem("currentUser");
     if (savedUser) {
       const parsedUser = JSON.parse(savedUser);
       setCurrentUser(parsedUser);
-      setUserId(parsedUser.id || parsedUser._id);
       setCurrentPage("main");
-    } else {
-      setCurrentPage("login");
-    }
+    } else setCurrentPage("login");
   }, []);
 
   const navigateTo = (page) => {
@@ -29,14 +25,12 @@ const App = () => {
 
   const handleLogin = (userData) => {
     setCurrentUser(userData.user);
-    setUserId(userData.user.id);
     localStorage.setItem("currentUser", JSON.stringify(userData.user));
     navigateTo("main");
   };
 
   const handleLogout = () => {
     setCurrentUser(null);
-    setUserId(null);
     setSelectedQuizId(null);
     localStorage.removeItem("currentUser");
     navigateTo("login");
@@ -63,7 +57,6 @@ const App = () => {
         return (
           <Profile
             currentUser={currentUser}
-            userId={userId}
             onLogout={handleLogout}
             onBack={() => navigateTo("main")}
           />
@@ -73,7 +66,6 @@ const App = () => {
         return (
           <Quiz
             currentUser={currentUser}
-            userId={userId}
             quizId={selectedQuizId}
             onBackToMain={() => navigateTo("main")}
           />
