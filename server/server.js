@@ -5,7 +5,7 @@ connectToDatabase();
 
 const express = require("express");
 const cors = require("cors");
-const infoMid = require("./error/middleware");
+const { infoMid } = require("./middleware/middleware");
 
 const app = express();
 

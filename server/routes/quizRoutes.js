@@ -1,8 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const { Quiz } = require("../models/Schema");
+const { verifyToken } = require("../middleware/middleware");
 
-router.get("/", async (req, res) => {
+router.get("/", verifyToken, async (req, res) => {
   try {
     const quizzes = await Quiz.find();
     res.status(200).json(quizzes);

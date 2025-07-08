@@ -250,7 +250,6 @@ const seed = async () => {
             "AI pathfinding errors",
             "Graphics rendering problems",
             "Z-fighting",
-            "Infinite loop",
           ],
         },
       ],

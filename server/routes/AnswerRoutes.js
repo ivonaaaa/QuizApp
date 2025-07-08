@@ -3,8 +3,9 @@ const router = express.Router();
 const { Question } = require("../models/Schema");
 const { Answer } = require("../models/Schema");
 const { Result } = require("../models/Schema");
+const { verifyToken } = require("../middleware/middleware");
 
-router.get("/byQuestion/:questionId", async (req, res) => {
+router.get("/byQuestion/:questionId", verifyToken, async (req, res) => {
   try {
     const answers = await Answer.find({ QuestionId: req.params.questionId });
     res.status(200).json(answers);
@@ -13,7 +14,7 @@ router.get("/byQuestion/:questionId", async (req, res) => {
   }
 });
 
-router.post("/submit", async (req, res) => {
+router.post("/submit", verifyToken, async (req, res) => {
   try {
     const { userId, quizId, userAnswers } = req.body;
     if (!userId || !quizId || !userAnswers || !Array.isArray(userAnswers))
