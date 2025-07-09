@@ -114,6 +114,7 @@
 
 .quiz-box p {
   margin-bottom: 1rem;
+  color: var(--color-dark);
 }
 
 .sparkle-wrapper {
@@ -132,15 +133,15 @@
 
 footer p {
   font-size: 0.9rem;
-  color: var(--color-grey);
+  color: var(--color-dark);
   text-align: center;
 }
 
 footer a {
-  color: var(--color-turquoise);
+  color: #58b2c4;
 }
 footer a:hover {
-  color: var(--color-turquoise-hover);
+  color: #3f8998;
 }
 
 @media (max-width: 1300px) {
